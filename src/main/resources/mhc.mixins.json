@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "net.redstone233.morehammercraft.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "AbstractFurnaceBlockEntityMixin",
+    "BrewingRecipeRegistryMixin",
+    "ExampleMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+	}
+}
