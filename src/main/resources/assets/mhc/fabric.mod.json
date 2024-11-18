@@ -1,0 +1,50 @@
+{
+	"schemaVersion": 1,
+	"id": "mhc",
+	"version": "${version}",
+	"name": "Hammer Craft",
+	"description": "Welcome to use more Hammer Craft Body mod for Fabric Minecraft!",
+	"authors": [
+		"Redstone233"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/mhc/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.redstone233.morehammercraft.MoreHammerCraft"
+		],
+		"fabric-datagen": [
+			"net.redstone233.morehammercraft.MoreHammerCraftDataGenerator"
+		],
+		"client": [
+			"net.redstone233.morehammercraft.MoreHammerCraftClient"
+		]
+	},
+	"mixins": [
+		"mhc.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.9",
+		"minecraft": "~1.21.3",
+		"java": ">=21",
+		"fabric-api": ">=0.107.0"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.discord": "https://discord.com/invite/ug9HCMZpD3"
+			},
+			"parent": {
+				"id": "builder-api"
+			}
+		}
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
