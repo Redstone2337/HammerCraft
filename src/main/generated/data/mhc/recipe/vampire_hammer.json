@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "mhc:vampire_hammer"
+    },
+    "j": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "iii",
+    " j ",
+    " j "
+  ],
+  "result": {
+    "count": 1,
+    "id": "mhc:vampire_hammer"
+  }
+}

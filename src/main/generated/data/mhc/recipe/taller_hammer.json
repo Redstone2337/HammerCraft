@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "mhc:default_ingot"
+    },
+    "j": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "iii",
+    "iji",
+    " j "
+  ],
+  "result": {
+    "count": 1,
+    "id": "mhc:taller_hammer"
+  }
+}
