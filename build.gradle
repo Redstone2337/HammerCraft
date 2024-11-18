@@ -37,7 +37,7 @@ dependencies {
 	// Jackson数据绑定库
 	implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
 	// Builder API
-	implementation files('C:\\Users\\Administrator\\Desktop\\morehammercraft-template-1.21\\mods\\builder-api-0.1+build3.jar')
+	//implementation files('C:\\Users\\Administrator\\Desktop\\morehammercraft-template-1.21\\mods\\builder-api-0.1+build3.jar')
 }
 
 processResources {
