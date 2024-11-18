@@ -5,6 +5,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.loader.api.FabricLoader;
 import net.redstone233.morehammercraft.commands.BoomCommands;
+import net.redstone233.morehammercraft.commands.InfoCommands;
 import net.redstone233.morehammercraft.commands.Settings;
 import net.redstone233.morehammercraft.commands.SlownessCommand;
 import net.redstone233.morehammercraft.effects.ModStatusEffects;
@@ -43,6 +44,7 @@ public class MoreHammerCraft implements ModInitializer {
 			dispatcher.register(Settings.register());
 			dispatcher.register(SlownessCommand.register());
 			dispatcher.register(BoomCommands.register());
+			dispatcher.register(InfoCommands.register());
 		}));
 	}
 }
