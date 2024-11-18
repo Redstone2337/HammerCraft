@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": "#minecraft:stone_tool_materials",
+    "B": "mhc:sickle_head",
+    "C": "minecraft:blaze_rod",
+    "D": "minecraft:stick",
+    "E": "minecraft:breeze_rod"
+  },
+  "pattern": [
+    "ABA",
+    "CDE",
+    "CDE"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mhc:stone_sickle"
+  }
+}

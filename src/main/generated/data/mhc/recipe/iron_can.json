@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "minecraft:iron_ingot",
+    "B": "minecraft:blaze_powder"
+  },
+  "pattern": [
+    "AAA",
+    "A A",
+    "B B"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mhc:iron_can"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": "mhc:default_ingot",
+    "B": "minecraft:blaze_rod"
+  },
+  "pattern": [
+    "AAA",
+    " B ",
+    " B "
+  ],
+  "result": {
+    "count": 1,
+    "id": "mhc:ice_dragon_sword"
+  }
+}

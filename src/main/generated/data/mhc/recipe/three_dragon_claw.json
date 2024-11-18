@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": "minecraft:netherite_scrap",
+    "B": "minecraft:lava_bucket",
+    "C": "minecraft:blaze_rod",
+    "D": "minecraft:orange_dye"
+  },
+  "pattern": [
+    "AAA",
+    "BCB",
+    "DCD"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mhc:three_dragon_claw"
+  }
+}
