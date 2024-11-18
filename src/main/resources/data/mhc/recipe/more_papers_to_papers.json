@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "morepapers",
+  "ingredients": [
+    {
+      "item": "mhc:more_papers"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "id": "mhc:papers"
+  }
+}

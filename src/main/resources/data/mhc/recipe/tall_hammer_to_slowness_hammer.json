@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "mhc:slowness_ingot"
+  },
+  "base": {
+    "item": "mhc:default_hammers"
+  },
+  "result": {
+    "count": 1,
+    "id": "mhc:slowness_hammer"
+  },
+  "template": {
+    "item": "mhc:slowness_template"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "mhc:vampire_ingot"
+  },
+  "base": {
+    "item": "mhc:default_hammer"
+  },
+  "result": {
+    "count": 1,
+    "id": "mhc:vampire_hammer"
+  },
+  "template": {
+    "item": "mhc:vampire_template"
+  }
+}
