@@ -12,11 +12,15 @@ import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
+import net.redstone233.morehammercraft.core.until.IsEntityFire;
+import net.redstone233.morehammercraft.core.until.TeleportHeight;
 
 import java.util.List;
 
 public class DiamondSickleItem extends SwordItem {
     private static double height;
+    private final TeleportHeight teleportHeight = new TeleportHeight();
+    private final IsEntityFire isEntityFire = new IsEntityFire();
 
     public DiamondSickleItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
@@ -35,9 +39,15 @@ public class DiamondSickleItem extends SwordItem {
         if (attacker instanceof PlayerEntity && target instanceof LivingEntity livingEntity) {
             if (Screen.hasControlDown()) {
                 livingEntity.setOnFireFor(300.0f);
+                isEntityFire.setEntityFire(300.0f);
+                isEntityFire.setEntityFire(isEntityFire.getEntityFire());
+                isEntityFire.FireSetFor(target);
             }
             if (Screen.hasShiftDown()) {
                 tpSkyUp(target, getHeight());
+                teleportHeight.setHeight(getHeight());
+                teleportHeight.setHeight(teleportHeight.getHeight());
+                teleportHeight.TeleportPos(target);
             }
         }
         return true;

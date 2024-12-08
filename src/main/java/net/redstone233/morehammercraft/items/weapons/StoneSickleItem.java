@@ -12,22 +12,26 @@ import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
+import net.redstone233.morehammercraft.core.until.IsEntityFire;
+import net.redstone233.morehammercraft.core.until.TeleportHeight;
 
 import java.util.List;
 
 public class StoneSickleItem extends SwordItem {
-    private static double hight;
+    private static double height;
+    private final TeleportHeight teleportHeight = new TeleportHeight();
+    private final IsEntityFire isEntityFire = new IsEntityFire();
 
     public StoneSickleItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
     }
 
-    public static double getHight() {
-        return hight;
+    public static double getHeight() {
+        return height;
     }
 
-    public static void setHight(double hight) {
-        StoneSickleItem.hight = hight;
+    public static void setHeight(double height) {
+        StoneSickleItem.height = height;
     }
 
     @Override
@@ -35,9 +39,15 @@ public class StoneSickleItem extends SwordItem {
         if (attacker instanceof PlayerEntity && target instanceof LivingEntity livingEntity) {
             if (Screen.hasControlDown()) {
                 livingEntity.setOnFireFor(300.0f);
+                isEntityFire.setEntityFire(300.0f);
+                isEntityFire.setEntityFire(isEntityFire.getEntityFire());
+                isEntityFire.FireSetFor(target);
             }
             if (Screen.hasShiftDown()) {
-                tpSkyUp(target, getHight());
+                tpSkyUp(target, getHeight());
+                teleportHeight.setHeight(getHeight());
+                teleportHeight.setHeight(teleportHeight.getHeight());
+                teleportHeight.TeleportPos(target);
             }
         }
         return true;
@@ -54,7 +64,7 @@ public class StoneSickleItem extends SwordItem {
         RegistryWrapper.WrapperLookup wrapperLookup = context.getRegistryLookup();
         if (wrapperLookup != null) {
             tooltip.add(Text.translatable("item.mhc.sickle.tooltip"));
-            tooltip.add(Text.translatable("item.mhc.sickle.shift.tooltip",String.valueOf(getHight())));
+            tooltip.add(Text.translatable("item.mhc.sickle.shift.tooltip",String.valueOf(getHeight())));
         }
         super.appendTooltip(stack, context, tooltip, type);
     }

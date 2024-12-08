@@ -16,11 +16,22 @@ import net.minecraft.text.Text;
 import net.minecraft.text.Texts;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
+import net.redstone233.morehammercraft.core.until.IsEntityFireBuilder;
+import net.redstone233.morehammercraft.core.until.TeleportHeightBuilder;
 
 import java.util.List;
 
 public class NetheriteSickleItem extends SwordItem {
     private static double height;
+    TeleportHeightBuilder teleportHeightBuilder = new TeleportHeightBuilder.HeightBuilders()
+            .X(0)
+            .Y(0)
+            .Z(0)
+            .Height(getHeight())
+            .heightBuilder();
+    IsEntityFireBuilder isEntityFireBuilder = new IsEntityFireBuilder.IsFireBuilder()
+            .tick(300.0f)
+            .fireBuilder();
 
     public NetheriteSickleItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
@@ -39,9 +50,11 @@ public class NetheriteSickleItem extends SwordItem {
         if (attacker instanceof PlayerEntity && target instanceof LivingEntity livingEntity) {
             if (Screen.hasControlDown()) {
                 livingEntity.setOnFireFor(300.0f);
+                isEntityFireBuilder.FireSetFor(target);
             }
             if (Screen.hasShiftDown()) {
                 tpSkyUp(target, getHeight());
+                teleportHeightBuilder.TeleportPos(target);
             }
         }
         return true;
