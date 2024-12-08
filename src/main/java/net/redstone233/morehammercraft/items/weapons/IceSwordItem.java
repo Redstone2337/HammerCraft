@@ -1,5 +1,6 @@
 package net.redstone233.morehammercraft.items.weapons;
 
+import net.fabricmc.fabric.api.item.v1.FabricItem;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.screen.Screen;
@@ -9,6 +10,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
@@ -28,9 +30,13 @@ import java.util.Map;
 public class IceSwordItem extends SwordItem {
     private static final Map<BlockPos, Long> iceBlockTimer = new HashMap<>();
 
-    public IceSwordItem(ToolMaterial toolMaterial, Settings settings) {
-        super(toolMaterial, settings);
+    public IceSwordItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
+        super(material, attackDamage, attackSpeed, settings);
     }
+
+//    public IceSwordItem(ToolMaterial toolMaterial, Settings settings) {
+//        super(toolMaterial, settings);
+//    }
 
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
@@ -39,6 +45,9 @@ public class IceSwordItem extends SwordItem {
             spawnSnowflakeParticles(mob);
             mob.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS,500,255,true,false,true));
             player.addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH,200,5,true,false,true));
+        } else if (Screen.hasShiftDown() && target instanceof MobEntity mob) {
+            BlockPos pos = mob.getBlockPos().add(0, 0, 0);
+            mob.teleport(pos.getX(),pos.getY(),pos.getZ(),false);
         }
         return true;
     }
@@ -61,11 +70,12 @@ public class IceSwordItem extends SwordItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        if (Screen.hasAltDown()) {
+        if (!Screen.hasAltDown()) {
             tooltip.add(Text.translatable("item.mhc.prospector.tooltip"));
         } else {
             tooltip.add(Text.translatable("item.mhc.ice_sword.alt.tooltip"));
         }
+        tooltip.add(Text.translatable("item.mhc.ice_dragon_sword.shift"));
         super.appendTooltip(stack, context, tooltip, type);
     }
 
