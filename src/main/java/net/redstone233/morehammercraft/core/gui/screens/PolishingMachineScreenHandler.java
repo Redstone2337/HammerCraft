@@ -41,8 +41,8 @@ public class PolishingMachineScreenHandler extends ScreenHandler {
     }
 
     public PolishingMachineScreenHandler(int syncId, PlayerInventory playerInventory, PolishMachineData data) {
-        //this(syncId,playerInventory,new ArrayPropertyDelegate(2),playerInventory.player.getWorld().getBlockEntity(data.pos()));
-        this(syncId,playerInventory,new SimpleInventory(2),playerInventory.player.getWorld().getBlockEntity(data.pos()));
+        this(syncId,playerInventory,new ArrayPropertyDelegate(2),playerInventory.player.getWorld().getBlockEntity(data.pos()));
+        //this(syncId,playerInventory,new SimpleInventory(2),playerInventory.player.getWorld().getBlockEntity(data.pos()));
     }
 
     private void addPlayerHotbar(PlayerInventory playerInventory) {
