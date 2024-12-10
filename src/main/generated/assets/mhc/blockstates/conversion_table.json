@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "mhc:block/conversion_table"
+    }
+  }
+}
