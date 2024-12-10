@@ -9,9 +9,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.redstone233.morehammercraft.core.until.IsEntityFire;
 import net.redstone233.morehammercraft.core.until.TeleportHeight;
 
@@ -36,6 +38,8 @@ public class StoneSickleItem extends SwordItem {
 
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        World world = target.getWorld();
+        BlockPos pos = target.getBlockPos();
         if (attacker instanceof PlayerEntity && target instanceof LivingEntity livingEntity) {
             if (Screen.hasControlDown()) {
                 livingEntity.setOnFireFor(300.0f);
@@ -48,6 +52,22 @@ public class StoneSickleItem extends SwordItem {
                 teleportHeight.setHeight(getHeight());
                 teleportHeight.setHeight(teleportHeight.getHeight());
                 teleportHeight.TeleportPos(target);
+            }
+        }
+        if (attacker instanceof PlayerEntity player) {
+            if (Screen.hasControlDown()) {
+                target.setOnFireFor(300.0f);
+                player.sendMessage(Text.of("已经将目标"+target+"引燃"),true);
+            }
+            if (Screen.hasShiftDown()) {
+                if (!world.isClient()) {
+                    double x = pos.getX() + 0.5;
+                    double y = pos.getY() + 0.5;
+                    double z = pos.getZ() + 0.5;
+                    world.addParticle(ParticleTypes.DRIPPING_WATER,x,y,z,0.0,0.0,0.0);
+                }
+                target.teleport(target.getX(),target.getY() + getHeight(),target.getZ(),false);
+                player.sendMessage(Text.of("已经将目标"+target+"踢上"+getHeight()+"高空"),true);
             }
         }
         return true;

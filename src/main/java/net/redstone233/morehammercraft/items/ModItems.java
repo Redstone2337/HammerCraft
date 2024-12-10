@@ -284,7 +284,7 @@ public class ModItems {
         TallerHammer.setAttackSpeedModifierValue(2.5f);
         TallerHammer.setAttackDamageModifierValue(5);
         WoodenSickleItem.setHeight(100.0f);
-        StoneSickleItem.setHight(150.0f);
+        StoneSickleItem.setHeight(150.0f);
         IronSickleItem.setHeight(200.0f);
         GoldenSickleItem.setHeight(250.0f);
         DiamondSickleItem.setHeight(300.0f);

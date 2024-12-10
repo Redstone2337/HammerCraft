@@ -10,6 +10,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.redstone233.morehammercraft.MoreHammerCraft;
+import net.redstone233.morehammercraft.blocks.ModBlocks;
 import net.redstone233.morehammercraft.potions.ModPotions;
 
 public class ModItemGroups {
@@ -20,6 +21,7 @@ public class ModItemGroups {
     public static final RegistryKey<ItemGroup> INGREDIENTS = register("ingredients");
     public static final RegistryKey<ItemGroup> ZHENGHUO = register("zhn_item");
     public static final RegistryKey<ItemGroup> FOODS = register("food");
+    public static final RegistryKey<ItemGroup> BLOCKS = register("mod_block");
 
     private static RegistryKey<ItemGroup> register(String id) {
         return RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(MoreHammerCraft.MOD_ID, id));
@@ -92,6 +94,17 @@ public class ModItemGroups {
                             entries.add(ModItems.MORE_PAPERS);
                             entries.add(ModItems.PAPERS);
                             entries.add(ModItems.IRON_COLA);
+                            //entries.add((ItemConvertible) ModPotions.FIRE_ON_ONESELF);
+                        })).build());
+        Registry.register(Registries.ITEM_GROUP,ModItemGroups.BLOCKS,
+                ItemGroup.create(ItemGroup.Row.TOP,0)
+                        .displayName(Text.translatable("itemGroup.mhc.block"))
+                        .icon(() -> new ItemStack(ModItems.FLYDRAGON_STUDIO)).entries(((displayContext, entries) -> {
+                            entries.add(ModBlocks.POLISH_MACHINE);
+//                            entries.add(ModItems.FLYDRAGON_STUDIO);
+//                            entries.add(ModItems.MORE_PAPERS);
+//                            entries.add(ModItems.PAPERS);
+//                            entries.add(ModItems.IRON_COLA);
                             //entries.add((ItemConvertible) ModPotions.FIRE_ON_ONESELF);
                         })).build());
     }

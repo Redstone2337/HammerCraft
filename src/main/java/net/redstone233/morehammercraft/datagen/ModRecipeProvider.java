@@ -19,6 +19,7 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.Identifier;
 import net.redstone233.morehammercraft.MoreHammerCraft;
+import net.redstone233.morehammercraft.blocks.ModBlocks;
 import net.redstone233.morehammercraft.items.ModItems;
 
 import java.util.concurrent.CompletableFuture;
@@ -159,6 +160,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .input('C',Items.BLAZE_ROD)
                         .input('D',Items.ORANGE_DYE)
                         .criterion("has_netherite_scrap",conditionsFromItem(Items.NETHERITE_SCRAP))
+                        .offerTo(recipeExporter);
+                createShaped(RecipeCategory.MISC, ModBlocks.POLISH_MACHINE,1)
+                        .pattern("AAA")
+                        .pattern("ABA")
+                        .pattern("AAA")
+                        .input('A',ModItems.FLYDRAGON)
+                        .input('B',Items.CRAFTER)
+                        .criterion("has_crafter",conditionsFromItem(Items.CRAFTER))
                         .offerTo(recipeExporter);
 
 //                createShapeless(RecipeCategory.MISC,ModItems.IRON_COLA,1)

@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
+import net.redstone233.morehammercraft.blocks.ModBlocks;
 import net.redstone233.morehammercraft.items.ModItems;
 
 public class ModModelsProvider extends FabricModelProvider {
@@ -14,7 +15,7 @@ public class ModModelsProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-
+        blockStateModelGenerator.registerSimpleState(ModBlocks.POLISH_MACHINE);
     }
 
     @Override

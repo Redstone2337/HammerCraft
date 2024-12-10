@@ -6,11 +6,15 @@ import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
+import net.redstone233.morehammercraft.blocks.ModBlocks;
 import net.redstone233.morehammercraft.commands.BoomCommands;
 import net.redstone233.morehammercraft.commands.InfoCommands;
 import net.redstone233.morehammercraft.commands.Settings;
 import net.redstone233.morehammercraft.commands.SlownessCommand;
+import net.redstone233.morehammercraft.core.gui.screens.ModScreenHandler;
+import net.redstone233.morehammercraft.core.recipe.ModRecipeTypes;
 import net.redstone233.morehammercraft.effects.ModStatusEffects;
+import net.redstone233.morehammercraft.entities.ModBlockEntities;
 import net.redstone233.morehammercraft.items.ModItemGroups;
 import net.redstone233.morehammercraft.items.ModItems;
 import net.redstone233.morehammercraft.potions.ModPotions;
@@ -38,6 +42,10 @@ public class MoreHammerCraft implements ModInitializer {
 		ModItemTags.registerModItemTags();
 		ModStatusEffects.registerStatusEffects();
 		ModPotions.registerModPotions();
+		ModBlockEntities.registerModBlockEntities();
+		ModBlocks.register();
+		ModScreenHandler.register();
+		ModRecipeTypes.register();
         LOGGER.info("Hello Fabric world!");
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			//dispatcher.register(ConfigCmd.register());
