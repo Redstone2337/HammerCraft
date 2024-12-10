@@ -36,6 +36,7 @@
     "itemGroup.mhc.ingredients": "MoreHammer|Ingredients",
     "itemGroup.mhc.zhenghuo": "MoreHammer|Zhenghuo",
     "itemGroup.mhc.food": "MoreHammer|Foods",
+    "itemGroup.mhc.block": "MoreHammer|Blocks",
     "item.mhc.prospector.tooltip": "Hold §6ALT§r for more information.",
     "item.mhc.vampire.tooltip": "Hold §6ALT§r for more information.",
     "item.mhc.vampire.alt.tooltip": "Heath+ %d\n Damage+ %d\n Speed+ %f",
@@ -128,6 +129,6 @@
     "item.mhc.ice_dragon_sword.shift": "Hold \u00a76SHIFT\u00a7r to enable knockback",
     "item.mhc.sickle.tooltip": "Press and Hold \u00a76CTRL\u00a7r for Cause the target to ignite",
     "item.mhc.sickle.shift.tooltip": "Press and Hold \u00a76SHIFT\u00a7r to MakeMake the target fly %s squares in the sky.",
-    "item.mhc.pseudo.tooltip": "Tips: The PR is Pseudo Resource to not successful"
-    
+    "item.mhc.pseudo.tooltip": "Tips: The PR is Pseudo Resource to not successful",
+    "block.mhc.polishing_machine": "Conversion Tables"
 }

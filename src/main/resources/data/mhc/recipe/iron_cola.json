@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "fabric:type": "fabric:any",
+      "ingredients": [
+        "mhc:iron_can",
+        "minecraft:red_dye",
+        "minecraft:white_dye",
+        "minecraft:iron_ingot"
+      ]
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "mhc:iron_cola"
+  }
+}

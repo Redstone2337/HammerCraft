@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "mhc:default_ingot",
+  "base": "mhc:default_hammer",
+  "result": {
+    "count": 1,
+    "id": "mhc:taller_hammer"
+  },
+  "template": "mhc:default_template"
+}

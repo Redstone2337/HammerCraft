@@ -37,6 +37,7 @@
     "itemGroup.mhc.ingredients": "更多锤子|杂项",
     "itemGroup.mhc.zhenghuo": "更多锤子|整活",
     "itemGroup.mhc.food": "更多锤子|食物",
+    "itemGroup.mhc.block": "更多锤子|方块",
     
     "item.mhc.prospector.tooltip": "按住§6ALT§r以获得更多信息。",
     "item.mhc.vampire.tooltip": "按住§6ALT§r以获得更多信息。",
@@ -133,5 +134,6 @@
 
     "item.mhc.sickle.tooltip": "按住\u00a76CTRL\u00a7r并攻击,使目标快速着火",
     "item.mhc.sickle.shift.tooltip": "按住\u00a76SHIFT\u00a7r并攻击，使目标飞上%s米高空",
-    "item.mhc.pseudo.tooltip": "Tips：伪资是指这个物品的纹理是伪造的还没有完成。"
+    "item.mhc.pseudo.tooltip": "Tips：伪资是指这个物品的纹理是伪造的还没有完成。",
+    "block.mhc.polishing_machine": "转化台"
 }
