@@ -135,5 +135,6 @@
     "item.mhc.sickle.tooltip": "按住\u00a76CTRL\u00a7r并攻击,使目标快速着火",
     "item.mhc.sickle.shift.tooltip": "按住\u00a76SHIFT\u00a7r并攻击，使目标飞上%s米高空",
     "item.mhc.pseudo.tooltip": "Tips：伪资是指这个物品的纹理是伪造的还没有完成。",
-    "block.mhc.polishing_machine": "转化台"
+    "block.mhc.conversion_table": "转化台",
+    "block.mhc.conversion_table.gui": "转化台"
 }
