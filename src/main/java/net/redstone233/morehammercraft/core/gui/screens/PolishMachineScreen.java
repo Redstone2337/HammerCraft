@@ -25,15 +25,15 @@ public class PolishMachineScreen extends HandledScreen<PolishingMachineScreenHan
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
         int x = (this.width - this.backgroundWidth) / 2;
         int y = (this.height - this.backgroundHeight) / 2;
-        //context.drawTexture(RenderLayer::getGuiTextured,TEXTURE,x,y,0,0,backgroundWidth,backgroundHeight,256,256);
-        context.drawGuiTexture(TEXTURE,x,y,0,0,this.backgroundWidth,this.backgroundHeight);
+        context.drawTexture(RenderLayer::getGuiTextured,TEXTURE,x,y,0,0,backgroundWidth,backgroundHeight,256,256);
+        //context.drawGuiTexture(TEXTURE,x,y,0,0,this.backgroundWidth,this.backgroundHeight);
         renderProgressArrow(context,x,y);
     }
 
     private void renderProgressArrow(DrawContext context, int x, int y) {
         if (handler.isCrafting() && handler.isRaining()) {
-            //context.drawTexture(RenderLayer::getGuiTextured,TEXTURE,x + 85,y + 30,176,0,8,handler.getScaledProgress(),backgroundWidth,backgroundHeight);
-            context.drawGuiTexture(TEXTURE,x + 85,y + 30,176,0,8,handler.getScaledProgress(),this.backgroundWidth,this.backgroundHeight);
+            context.drawTexture(RenderLayer::getGuiTextured,TEXTURE,x + 85,y + 30,176,0,8,handler.getScaledProgress(),backgroundWidth,backgroundHeight);
+            //context.drawGuiTexture(TEXTURE,x + 85,y + 30,176,0,8,handler.getScaledProgress(),this.backgroundWidth,this.backgroundHeight);
         }
     }
 }
