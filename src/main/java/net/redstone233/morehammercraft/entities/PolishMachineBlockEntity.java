@@ -71,7 +71,7 @@ public class PolishMachineBlockEntity extends BlockEntity implements ExtendedScr
 
     @Override
     public Text getDisplayName() {
-        return Text.translatable("block.mhc.polishing_machine");
+        return Text.translatable("block.mhc.conversion_table.gui");
     }
 
     @Override
