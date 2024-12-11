@@ -130,5 +130,6 @@
     "item.mhc.sickle.tooltip": "Press and Hold \u00a76CTRL\u00a7r for Cause the target to ignite",
     "item.mhc.sickle.shift.tooltip": "Press and Hold \u00a76SHIFT\u00a7r to MakeMake the target fly %s squares in the sky.",
     "item.mhc.pseudo.tooltip": "Tips: The PR is Pseudo Resource to not successful",
-    "block.mhc.polishing_machine": "Conversion Tables"
+    "block.mhc.conversion_table": "Conversion Tables",
+    "block.mhc.conversion_table.gui": "Conversion Tables"
 }
