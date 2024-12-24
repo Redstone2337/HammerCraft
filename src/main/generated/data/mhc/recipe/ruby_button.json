@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    "mhc:ruby"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mhc:ruby_button"
+  }
+}

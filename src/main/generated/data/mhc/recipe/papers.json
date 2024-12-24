@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "minecraft:paper",
+    "B": "minecraft:wheat"
+  },
+  "pattern": [
+    "AAA",
+    "A A",
+    "BBB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mhc:papers"
+  }
+}

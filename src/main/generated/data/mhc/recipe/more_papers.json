@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "fabric:type": "fabric:any",
+      "ingredients": [
+        "mhc:papers",
+        "mhc:iron_cola",
+        "minecraft:paper",
+        "minecraft:water_bucket"
+      ]
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "mhc:more_papers"
+  }
+}
