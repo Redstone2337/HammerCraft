@@ -28,15 +28,15 @@ import java.util.List;
 
 public class GoldenSickleItem extends SwordItem {
     private static double height;
-    TeleportHeightBuilder teleportHeightBuilder = new TeleportHeightBuilder.HeightBuilders()
-            .X(0)
-            .Y(0)
-            .Z(0)
-            .Height(getHeight())
-            .heightBuilder();
-    IsEntityFireBuilder isEntityFireBuilder = new IsEntityFireBuilder.IsFireBuilder()
-            .tick(300.0f)
-            .fireBuilder();
+//    TeleportHeightBuilder teleportHeightBuilder = new TeleportHeightBuilder.HeightBuilders()
+//            .X(0)
+//            .Y(0)
+//            .Z(0)
+//            .Height(getHeight())
+//            .heightBuilder();
+//    IsEntityFireBuilder isEntityFireBuilder = new IsEntityFireBuilder.IsFireBuilder()
+//            .tick(300.0f)
+//            .fireBuilder();
 
     public GoldenSickleItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
@@ -54,19 +54,19 @@ public class GoldenSickleItem extends SwordItem {
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         World world = target.getWorld();
         BlockPos pos = target.getBlockPos();
-        if (attacker instanceof PlayerEntity && target instanceof LivingEntity livingEntity) {
+//        if (attacker instanceof PlayerEntity && target instanceof LivingEntity livingEntity) {
+//            if (Screen.hasControlDown()) {
+//                livingEntity.setOnFireFor(300.0f);
+//                isEntityFireBuilder.FireSetFor(target);
+//            }
+//            if (Screen.hasShiftDown()) {
+//                tpSkyUp(target, getHeight());
+//                teleportHeightBuilder.TeleportPos(target);
+//            }
+//        }
+        if (attacker instanceof PlayerEntity player && target instanceof LivingEntity livingEntity) {
             if (Screen.hasControlDown()) {
-                livingEntity.setOnFireFor(300.0f);
-                isEntityFireBuilder.FireSetFor(target);
-            }
-            if (Screen.hasShiftDown()) {
-                tpSkyUp(target, getHeight());
-                teleportHeightBuilder.TeleportPos(target);
-            }
-        }
-        if (attacker instanceof PlayerEntity player) {
-            if (Screen.hasControlDown()) {
-                target.setOnFireFor(300.0f);
+                livingEntity.setFireTicks(300);
                 player.sendMessage(Text.of("已经将目标"+target+"引燃"),true);
             }
             if (Screen.hasShiftDown()) {
@@ -76,7 +76,7 @@ public class GoldenSickleItem extends SwordItem {
                     double z = pos.getZ() + 0.5;
                     world.addParticle(ParticleTypes.DRIPPING_WATER,x,y,z,0.0,0.0,0.0);
                 }
-                target.teleport(target.getX(),target.getY() + getHeight(),target.getZ(),false);
+                livingEntity.teleport(target.getX(),target.getY() + getHeight(),target.getZ(),false);
                 player.sendMessage(Text.of("已经将目标"+target+"踢上"+getHeight()+"高空"),true);
             }
         }
@@ -103,16 +103,16 @@ public class GoldenSickleItem extends SwordItem {
         super.appendTooltip(stack, context, tooltip, type);
     }
 
-    private void tpSkyUp(LivingEntity entity, double height) {
-        if (entity instanceof MobEntity mob) {
-            if (height >= 40) {
-                BlockPos pos = mob.getBlockPos().add(0, -1, 0); // 获取实体脚底下的位置
-                mob.teleport(pos.getX(),pos.getY()+height,pos.getZ(),false);
-            } else {
-                if (entity instanceof PlayerEntity player) {
-                    player.sendMessage(Text.of("高度未达到最"+height+"的要求！"),true);
-                }
-            }
-        }
-    }
+//    private void tpSkyUp(LivingEntity entity, double height) {
+//        if (entity instanceof MobEntity mob) {
+//            if (height >= 40) {
+//                BlockPos pos = mob.getBlockPos().add(0, -1, 0); // 获取实体脚底下的位置
+//                mob.teleport(pos.getX(),pos.getY()+height,pos.getZ(),false);
+//            } else {
+//                if (entity instanceof PlayerEntity player) {
+//                    player.sendMessage(Text.of("高度未达到最"+height+"的要求！"),true);
+//                }
+//            }
+//        }
+//    }
 }

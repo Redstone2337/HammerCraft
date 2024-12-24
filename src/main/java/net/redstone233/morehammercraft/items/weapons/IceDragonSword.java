@@ -10,7 +10,6 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.decoration.ArmorStandEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -46,15 +45,15 @@ public class IceDragonSword extends SwordItem {
 
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        if (target instanceof MobEntity mob && attacker instanceof PlayerEntity player) {
+        if (target instanceof LivingEntity mob && attacker instanceof PlayerEntity player) {
             spawnFrostBlocks(mob);
             spawnSnowflakeParticles(mob);
             mob.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS,600,255,true,false,true));
             player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION,200,4,true,false,true));
-        } else if (!Screen.hasShiftDown() && attacker instanceof PlayerEntity player) {
+        } else if (Screen.hasShiftDown() && attacker instanceof PlayerEntity player) {
             BlockPos pos = target.getBlockPos().add(0, 0, 0);
             target.teleport(pos.getX(),pos.getY(),pos.getZ(),false);
-            knockbackNearbyEntities(player.getWorld(),player,target);
+           knockbackNearbyEntities(player.getWorld(),player,target);
         }
         return true;
     }
@@ -64,13 +63,12 @@ public class IceDragonSword extends SwordItem {
         if (user instanceof PlayerEntity player) {
             player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION,200,4,false,false,true));
             if (!entity.isOnFire()) {
-                entity.setOnFireFor(200.0f);
+                entity.setFireTicks(200);
             }
-        } else if (entity instanceof MobEntity mob) {
-            mob.setOnFireFor(200.0f);
-            //mob.setOnFireForTicks(200);
+            if (entity.isAlive()) {
+                tick(entity.getWorld());
+            }
         }
-        //tick(user.getWorld());
         return ActionResult.SUCCESS;
     }
 
@@ -169,7 +167,7 @@ public class IceDragonSword extends SwordItem {
             BlockState blockState = world.getBlockState(blockPos);
             if (blockState.isOf(Blocks.AIR) || blockState.isOf(Blocks.WATER) || blockState.isOf(Blocks.LAVA)) {
                 world.setBlockState(blockPos, Blocks.PACKED_ICE.getDefaultState());
-                //iceBlockTimer.put(blockPos, System.currentTimeMillis() + 10000); // 设置10秒后消失
+                iceBlockTimer.put(blockPos, System.currentTimeMillis() + 3000); // 设置10秒后消失
             }
         }
     }

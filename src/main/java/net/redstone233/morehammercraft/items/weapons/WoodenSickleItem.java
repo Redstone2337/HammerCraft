@@ -23,8 +23,8 @@ import java.util.List;
 public class WoodenSickleItem extends SwordItem {
 
     private static double height;
-    private final TeleportHeight teleportHeight = new TeleportHeight();
-    private final IsEntityFire isEntityFire = new IsEntityFire();
+//    private final TeleportHeight teleportHeight = new TeleportHeight();
+//    private final IsEntityFire isEntityFire = new IsEntityFire();
 
     public WoodenSickleItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
@@ -42,23 +42,23 @@ public class WoodenSickleItem extends SwordItem {
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         World world = target.getWorld();
         BlockPos pos = target.getBlockPos();
-        if (attacker instanceof PlayerEntity && target instanceof LivingEntity livingEntity) {
+//        if (attacker instanceof PlayerEntity && target instanceof LivingEntity livingEntity) {
+//            if (Screen.hasControlDown()) {
+//                livingEntity.setOnFireFor(300.0f);
+//                isEntityFire.setEntityFire(300.0f);
+//                isEntityFire.setEntityFire(isEntityFire.getEntityFire());
+//                isEntityFire.FireSetFor(target);
+//            }
+//            if (Screen.hasShiftDown()) {
+//                tpSkyUp(target, getHeight());
+//                teleportHeight.setHeight(getHeight());
+//                teleportHeight.setHeight(teleportHeight.getHeight());
+//                teleportHeight.TeleportPos(target);
+//            }
+//        }
+        if (attacker instanceof PlayerEntity player && target instanceof LivingEntity livingEntity) {
             if (Screen.hasControlDown()) {
-                livingEntity.setOnFireFor(300.0f);
-                isEntityFire.setEntityFire(300.0f);
-                isEntityFire.setEntityFire(isEntityFire.getEntityFire());
-                isEntityFire.FireSetFor(target);
-            }
-            if (Screen.hasShiftDown()) {
-                tpSkyUp(target, getHeight());
-                teleportHeight.setHeight(getHeight());
-                teleportHeight.setHeight(teleportHeight.getHeight());
-                teleportHeight.TeleportPos(target);
-            }
-        }
-        if (attacker instanceof PlayerEntity player) {
-            if (Screen.hasControlDown()) {
-                target.setOnFireFor(300.0f);
+                livingEntity.setFireTicks(300);
                 player.sendMessage(Text.of("已经将目标"+target+"引燃"),true);
             }
             if (Screen.hasShiftDown()) {
@@ -68,7 +68,7 @@ public class WoodenSickleItem extends SwordItem {
                     double z = pos.getZ() + 0.5;
                     world.addParticle(ParticleTypes.DRIPPING_WATER,x,y,z,0.0,0.0,0.0);
                 }
-                target.teleport(target.getX(),target.getY() + getHeight(),target.getZ(),false);
+                livingEntity.teleport(target.getX(),target.getY() + getHeight(),target.getZ(),false);
                 player.sendMessage(Text.of("已经将目标"+target+"踢上"+getHeight()+"高空"),true);
             }
         }

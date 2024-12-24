@@ -1,6 +1,5 @@
 package net.redstone233.morehammercraft.items.weapons;
 
-import net.fabricmc.fabric.api.item.v1.FabricItem;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.screen.Screen;
@@ -10,7 +9,6 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
@@ -56,8 +54,10 @@ public class IceSwordItem extends SwordItem {
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
         if (user instanceof PlayerEntity player) {
             player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION,200,4,false,false,true));
+            if (entity.isAlive()) {
+                tick(entity.getWorld());
+            }
         }
-        //tick(user.getWorld());
         return ActionResult.SUCCESS;
     }
 
@@ -97,7 +97,7 @@ public class IceSwordItem extends SwordItem {
             BlockState blockState = world.getBlockState(blockPos);
             if (blockState.isOf(Blocks.AIR) || blockState.isOf(Blocks.WATER) || blockState.isOf(Blocks.LAVA)) {
                 world.setBlockState(blockPos, Blocks.PACKED_ICE.getDefaultState());
-                iceBlockTimer.put(blockPos, System.currentTimeMillis() + 10000); // 设置10秒后消失
+                iceBlockTimer.put(blockPos, System.currentTimeMillis() + 3000); // 设置10秒后消失
             }
         }
     }
