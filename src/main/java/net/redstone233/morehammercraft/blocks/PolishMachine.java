@@ -5,6 +5,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.util.ActionResult;
@@ -57,6 +58,12 @@ public class PolishMachine extends BlockWithEntity implements BlockEntityProvide
             }
             super.onStateReplaced(state, world, pos, newState, moved);
         }
+    }
+
+    @Override
+    public void onEntityLand(BlockView world, Entity entity) {
+        entity.setFireTicks(200);
+        super.onEntityLand(world, entity);
     }
 
     @Override
