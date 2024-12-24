@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_iron_can": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mhc:iron_can"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mhc:iron_cola"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_iron_can"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mhc:iron_cola"
+    ]
+  }
+}
