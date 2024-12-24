@@ -33,17 +33,19 @@ public class BlueFireEffect extends StatusEffect {
 //                entity.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 20 * (amplifier + 1),amplifier,true,false,false));
 //            }
 //        }
-        if (entity instanceof LivingEntity livingEntity) {
-            if (!livingEntity.isOnFire()) {
-                livingEntity.setOnFireFor(20 * (amplifier) + 1);
-                livingEntity.setFireTicks(20 * (amplifier) + 1);
-            }
-            if (entity instanceof PlayerEntity player) {
-                if (getRandom(1,10) >= 1 && getRandom(1,10) <= 9) {
-                   player.sendMessage(Text.of(livingEntity.getName()+"这次很幸运，没有中招。"),true);
-                } else if (getRandom(1,10) == 10) {
-                    player.sendMessage(Text.of("很遗憾，这次"+livingEntity.getName()+"中招了。"),true);
-                    livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER,300,amplifier,false,false,true));
+        if (!world.isClient()) {
+            if (entity instanceof LivingEntity livingEntity) {
+                if (!livingEntity.isOnFire()) {
+                    livingEntity.setFireTicks(20 * (amplifier) + 1);
+                    livingEntity.setFireTicks(20 * (amplifier) + 1);
+                }
+                if (entity instanceof PlayerEntity player) {
+                    if (getRandom(1,10) >= 1 && getRandom(1,10) <= 9) {
+                       player.sendMessage(Text.of(livingEntity.getName()+"这次很幸运，没有中招。"),true);
+                    } else if (getRandom(1,10) == 10) {
+                        player.sendMessage(Text.of("很遗憾，这次"+livingEntity.getName()+"中招了。"),true);
+                        livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER,300,amplifier,false,false,true));
+                    }
                 }
             }
         }

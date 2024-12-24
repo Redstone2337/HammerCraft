@@ -25,10 +25,12 @@ public class FireEffect extends StatusEffect {
 //                entity.setOnFire(true);
 //            }
 //        }
-        if (entity instanceof LivingEntity livingEntity) {
-            if (!livingEntity.isOnFire()) {
-                livingEntity.setOnFireFor(20.0f * (amplifier) + 1);
-                livingEntity.setFireTicks(20 * (amplifier) + 1);
+        if (!world.isClient()) {
+            if (entity instanceof LivingEntity livingEntity) {
+                if (!livingEntity.isOnFire()) {
+                    livingEntity.setFireTicks(20 * (amplifier) + 1);
+                    livingEntity.setFireTicks(20 * (amplifier) + 1);
+                }
             }
         }
         return true;
