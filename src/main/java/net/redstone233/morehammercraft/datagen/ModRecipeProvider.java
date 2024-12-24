@@ -169,7 +169,32 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .input('B',Items.CRAFTER)
                         .criterion("has_crafter",conditionsFromItem(Items.CRAFTER))
                         .offerTo(recipeExporter);
-
+                createShaped(RecipeCategory.FOOD,ModItems.PAPERS)
+                        .pattern("AAA")
+                        .pattern("A A")
+                        .pattern("BBB")
+                        .input('A',Items.PAPER)
+                        .input('B',Items.WHEAT)
+                        .criterion("has_paper",conditionsFromItem(Items.PAPER))
+                        .offerTo(recipeExporter);
+                createShapeless(RecipeCategory.FOOD,ModItems.MORE_PAPERS,1)
+                        .input(DefaultCustomIngredients.any(
+                                Ingredient.ofItem(ModItems.PAPERS),
+                                Ingredient.ofItem(ModItems.IRON_COLA),
+                                Ingredient.ofItem(Items.PAPER),
+                                Ingredient.ofItem(Items.WATER_BUCKET)))
+                        .criterion("has_iron_cola",conditionsFromItem(ModItems.IRON_COLA)).offerTo(recipeExporter);
+                createShapeless(RecipeCategory.FOOD,ModItems.IRON_COLA,1)
+                        .input(DefaultCustomIngredients.any(
+                                Ingredient.ofItem(ModItems.IRON_CAN),
+                                Ingredient.ofItem(Items.RED_DYE),
+                                Ingredient.ofItem(Items.BLUE_DYE),
+                                Ingredient.ofItem(Items.IRON_INGOT)))
+                        .criterion("has_iron_can",conditionsFromItem(ModItems.IRON_CAN)).offerTo(recipeExporter);
+                createShapeless(RecipeCategory.MISC,ModItems.RUBY)
+                        .input(DefaultCustomIngredients.any(Ingredient.ofItem(ModBlocks.RUBY_ORE)))
+                        .input(DefaultCustomIngredients.any(Ingredient.ofItem(ModItems.HAMMER_CRAFTING)))
+                        .criterion("has_ruby_ore",conditionsFromItem(ModBlocks.RUBY_ORE)).offerTo(recipeExporter);
 //                createShapeless(RecipeCategory.MISC,ModItems.IRON_COLA,1)
 //                        .input(DefaultCustomIngredients.any(
 //                                Ingredient.ofItems(ModItems.IRON_CAN),
@@ -201,6 +226,27 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .input('B',Items.BLAZE_POWDER)
                         .criterion("has_blaze_power",conditionsFromItem(Items.IRON_INGOT))
                         .offerTo(recipeExporter);
+                createShaped(RecipeCategory.BUILDING_BLOCKS,ModBlocks.RUBY_BLOCK)
+                        .pattern("AAA")
+                        .pattern("AAA")
+                        .pattern("AAA")
+                        .input('A',ModItems.RUBY)
+                        .criterion("has_ruby",conditionsFromItem(ModItems.RUBY))
+                        .offerTo(recipeExporter);
+                createShaped(RecipeCategory.MISC,ModBlocks.RUBY_WALL)
+                        .pattern("###")
+                        .pattern("###")
+                        .input('#',ModBlocks.RUBY_BLOCK)
+                        .criterion("has_ruby_block",conditionsFromItem(ModBlocks.RUBY_BLOCK))
+                        .offerTo(recipeExporter);
+                createStairsRecipe(ModBlocks.RUBY_STAIRS,Ingredient.ofItem(ModItems.RUBY)).criterion("has_ruby_block",conditionsFromItem(ModBlocks.RUBY_BLOCK)).offerTo(recipeExporter);
+                createSlabRecipe(RecipeCategory.BUILDING_BLOCKS,ModBlocks.RUBY_SLAB,Ingredient.ofItem(ModItems.RUBY)).criterion("has_ruby_block",conditionsFromItem(ModBlocks.RUBY_BLOCK)).offerTo(recipeExporter);
+                createButtonRecipe(ModBlocks.RUBY_BUTTON,Ingredient.ofItem(ModItems.RUBY)).criterion("has_ruby_block",conditionsFromItem(ModBlocks.RUBY_BLOCK)).offerTo(recipeExporter);
+                createDoorRecipe(ModBlocks.RUBY_DOOR,Ingredient.ofItem(ModItems.RUBY)).criterion("has_ruby_block",conditionsFromItem(ModBlocks.RUBY_BLOCK)).offerTo(recipeExporter);
+                createTrapdoorRecipe(ModBlocks.RUBY_TRAPDOOR,Ingredient.ofItem(ModItems.RUBY)).criterion("has_ruby_block",conditionsFromItem(ModBlocks.RUBY_BLOCK)).offerTo(recipeExporter);
+                createFenceRecipe(ModBlocks.RUBY_FENCE,Ingredient.ofItem(ModItems.RUBY)).criterion("has_ruby_block",conditionsFromItem(ModBlocks.RUBY_BLOCK)).offerTo(recipeExporter);
+                createFenceGateRecipe(ModBlocks.RUBY_FENCE_GATE,Ingredient.ofItem(ModItems.RUBY)).criterion("has_ruby_block",conditionsFromItem(ModBlocks.RUBY_BLOCK)).offerTo(recipeExporter);
+                createPressurePlateRecipe(RecipeCategory.REDSTONE,ModBlocks.RUBY_PRESSURE_PLATE,Ingredient.ofItem(ModItems.RUBY)).criterion("has_ruby_block",conditionsFromItem(ModBlocks.RUBY_BLOCK)).offerTo(recipeExporter);
             }
         };
     }

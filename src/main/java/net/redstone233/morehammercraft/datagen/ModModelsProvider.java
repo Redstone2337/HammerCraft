@@ -5,6 +5,8 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
+import net.minecraft.data.family.BlockFamily;
+import net.redstone233.morehammercraft.blocks.ModBlockFamilies;
 import net.redstone233.morehammercraft.blocks.ModBlocks;
 import net.redstone233.morehammercraft.items.ModItems;
 
@@ -16,6 +18,13 @@ public class ModModelsProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         blockStateModelGenerator.registerSimpleState(ModBlocks.POLISH_MACHINE);
+        blockStateModelGenerator.registerSimpleState(ModBlocks.DRAGON_FLAG_BLOCK);
+        ModBlockFamilies.getFamilies()
+                .filter(BlockFamily::shouldGenerateModels).forEach(
+                        blockFamily -> blockStateModelGenerator.registerCubeAllModelTexturePool(blockFamily.getBaseBlock())
+                                .family(blockFamily));
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_RUBY_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RUBY_ORE);
     }
 
     @Override
@@ -23,7 +32,7 @@ public class ModModelsProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.VAMPIRE_TEMPLATE,Models.GENERATED);
         itemModelGenerator.register(ModItems.DEFAULT_TEMPLATE,Models.GENERATED);
         //itemModelGenerator.register(ModItems.SLOWNESS_TEMPLATE,Models.GENERATED);
-        itemModelGenerator.register(ModItems.Prospectors,Models.GENERATED);
+        itemModelGenerator.register(ModItems.PROSPECTOR,Models.GENERATED);
         itemModelGenerator.register(ModItems.SLOWNESS_TEMPLATE,Models.GENERATED);
         itemModelGenerator.register(ModItems.DEFAULT_INGOT,Models.GENERATED);
         itemModelGenerator.register(ModItems.VAMPIRE_INGOT,Models.GENERATED);
@@ -38,5 +47,7 @@ public class ModModelsProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.IRON_CAN,Models.GENERATED);
         itemModelGenerator.register(ModItems.IRON_COLA,Models.GENERATED);
         itemModelGenerator.register(ModItems.SICKLE_HEAD,Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUBY,Models.GENERATED);
+        itemModelGenerator.register(ModItems.HAMMER_CRAFTING,Models.GENERATED);
     }
 }
