@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_iron_cola": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mhc:iron_cola"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mhc:more_papers"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_iron_cola"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mhc:more_papers"
+    ]
+  }
+}
