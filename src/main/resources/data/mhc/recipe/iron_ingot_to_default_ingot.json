@@ -1,0 +1,13 @@
+{
+  "group": "mhc",
+  "type": "mhc:conversion_table",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ],
+  "times": 100,
+  "result": {
+    "id": "mhc:default_ingot"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "mhc:hammer_crafting",
+  "base": "mhc:ruby_ore",
+  "result": {
+    "count": 1,
+    "id": "mhc:ruby"
+  },
+  "template": "minecraft:netherite_upgrade_smithing_template"
+}
