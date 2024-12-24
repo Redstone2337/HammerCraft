@@ -8,6 +8,7 @@
     "#minecraft:emerald_ores",
     "#minecraft:lapis_ores",
     "#minecraft:redstone_ores",
+    "#mhc:ruby_ores",
     "minecraft:nether_quartz_ore",
     "minecraft:ancient_debris"
   ]
