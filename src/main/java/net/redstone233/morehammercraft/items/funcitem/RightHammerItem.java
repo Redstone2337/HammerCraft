@@ -34,6 +34,7 @@ public class RightHammerItem extends Item {
     private static final int ATTACK_DAMAGE_MODIFIER_VALUE = 20;
     private static final float ATTACK_SPEED_MODIFIER_VALUE = -0.5F;
     private static final float MINING_SPEED_MULTIPLIER = 4.5F;
+    private static float ATTACK_SPEED_FOR_HAMMER = ATTACK_SPEED_MODIFIER_VALUE;
 
     public RightHammerItem(Settings settings) {
         super(settings);
@@ -56,6 +57,14 @@ public class RightHammerItem extends Item {
 
     public static ToolComponent createToolComponent() {
         return new ToolComponent(List.of(), ATTACK_SPEED_MODIFIER_VALUE*MINING_SPEED_MULTIPLIER, 2);
+    }
+
+    public static float getAttackSpeedForHammer() {
+        return ATTACK_SPEED_FOR_HAMMER;
+    }
+
+    public static void setAttackSpeedForHammer(float attackSpeedForHammer) {
+        ATTACK_SPEED_FOR_HAMMER = attackSpeedForHammer;
     }
 
     @Override
