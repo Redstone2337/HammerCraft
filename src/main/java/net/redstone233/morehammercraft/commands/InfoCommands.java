@@ -8,7 +8,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
-//import net.redstone233.builder.morebuilders.ExperienceSystemBuilder;
+import net.redstone233.builder.morebuilders.ExperienceSystemBuilder;
 
 public class InfoCommands {
     public static LiteralArgumentBuilder<ServerCommandSource> register() {
@@ -89,16 +89,16 @@ public class InfoCommands {
     private static int execute(ServerCommandSource source, PlayerEntity player) {
         if (source instanceof ServerCommandSource) {
             if (player != null) {
-               /* ExperienceSystemBuilder experienceSystemBuilder = new ExperienceSystemBuilder.Builder()
+                ExperienceSystemBuilder experienceSystemBuilder = new ExperienceSystemBuilder.Builder()
                         .experience(experience)
                         .level(level)
                         .experienceMultiplier(experienceMultiplier)
                         .build();
                 String lvl = String.valueOf(experienceSystemBuilder.getLevel());
                 //String exp = String.valueOf(experienceSystemBuilder.getExperience());
-                String next = String.valueOf(experienceSystemBuilder.getExperienceToNextLevel());*/
-                source.sendFeedback(() -> Text.translatable("commands.info.success"/*,player.getName(),lvl,next*/),true);
-                //return experienceSystemBuilder.getLevel();
+                String next = String.valueOf(experienceSystemBuilder.getExperienceToNextLevel());
+                source.sendFeedback(() -> Text.translatable("commands.info.success",player.getName(),lvl,next),true);
+                return experienceSystemBuilder.getLevel();
             } else {
                 source.sendError(Text.translatable("commands.info.fail"));
                 return 0;
@@ -110,16 +110,16 @@ public class InfoCommands {
     private static int execute1(ServerCommandSource source, PlayerEntity player) {
         if (source instanceof ServerCommandSource) {
             if (player != null) {
-               /* ExperienceSystemBuilder experienceSystemBuilder = new ExperienceSystemBuilder.Builder()
+                ExperienceSystemBuilder experienceSystemBuilder = new ExperienceSystemBuilder.Builder()
                         .experience(experience)
                         .level(level)
                         .experienceMultiplier(experienceMultiplier)
                         .build();
                 String lvl = String.valueOf(experienceSystemBuilder.getLevel());
                 String exp = String.valueOf(experienceSystemBuilder.getExperience());
-                String next = String.valueOf(experienceSystemBuilder.getExperienceToNextLevel());*/
-                source.sendFeedback(() -> Text.translatable("commands.info.success"/*,player.getName(),lvl,exp,next*/),true);
-                //return experienceSystemBuilder.getExperience();
+                String next = String.valueOf(experienceSystemBuilder.getExperienceToNextLevel());
+                source.sendFeedback(() -> Text.translatable("commands.info.success",player.getName(),lvl,exp,next),true);
+                return experienceSystemBuilder.getExperience();
             } else {
                 source.sendError(Text.translatable("commands.info.fail"));
                 return 0;
@@ -131,16 +131,16 @@ public class InfoCommands {
     private static int execute2(ServerCommandSource source, PlayerEntity player) {
         if (source instanceof ServerCommandSource) {
             if (player != null) {
-                /*ExperienceSystemBuilder experienceSystemBuilder = new ExperienceSystemBuilder.Builder()
+                ExperienceSystemBuilder experienceSystemBuilder = new ExperienceSystemBuilder.Builder()
                         .experience(experience)
                         .level(level)
                         .experienceMultiplier(experienceMultiplier)
                         .build();
                 String lvl = String.valueOf(experienceSystemBuilder.getLevel());
                 String exp = String.valueOf(experienceSystemBuilder.getExperience());
-                String next = String.valueOf(experienceSystemBuilder.getExperienceToNextLevel());*/
-                source.sendFeedback(() -> Text.translatable("commands.info.success"/*,player.getName(),lvl,exp,next*/),true);
-                //return (int) experienceSystemBuilder.getExperienceMultiplier();
+                String next = String.valueOf(experienceSystemBuilder.getExperienceToNextLevel());
+                source.sendFeedback(() -> Text.translatable("commands.info.success",player.getName(),lvl,exp,next),true);
+                return (int) experienceSystemBuilder.getExperienceMultiplier();
             } else {
                 source.sendError(Text.translatable("commands.info.fail"));
                 return 0;
@@ -152,16 +152,16 @@ public class InfoCommands {
     private static int execute3(ServerCommandSource source, PlayerEntity player) {
         if (source instanceof ServerCommandSource) {
             if (player != null) {
-               /* ExperienceSystemBuilder experienceSystemBuilder = new ExperienceSystemBuilder.Builder()
+                ExperienceSystemBuilder experienceSystemBuilder = new ExperienceSystemBuilder.Builder()
                         .experience(experience)
                         .level(level)
                         .experienceMultiplier(experienceMultiplier)
                         .build();
                 String lvl = String.valueOf(experienceSystemBuilder.getLevel());
                 String exp = String.valueOf(experienceSystemBuilder.getExperience());
-                String next = String.valueOf(experienceSystemBuilder.getExperienceToNextLevel());*/
-                source.sendFeedback(() -> Text.translatable("commands.info.success"/*,player.getName(),lvl,next*/),true);
-                //return experienceSystemBuilder.getExperienceToNextLevel();
+                String next = String.valueOf(experienceSystemBuilder.getExperienceToNextLevel());
+                source.sendFeedback(() -> Text.translatable("commands.info.success",player.getName(),lvl,next),true);
+                return experienceSystemBuilder.getExperienceToNextLevel();
             } else {
                 source.sendError(Text.translatable("commands.info.fail"));
                 return 0;
@@ -173,13 +173,13 @@ public class InfoCommands {
     private static int execute(ServerCommandSource source, PlayerEntity player, int levels) {
         if (source instanceof ServerCommandSource) {
             if (player != null) {
-                /*ExperienceSystemBuilder experienceSystemBuilder = new ExperienceSystemBuilder.Builder()
+                ExperienceSystemBuilder experienceSystemBuilder = new ExperienceSystemBuilder.Builder()
                         .experience(experience)
                         .level(levels)
                         .experienceMultiplier(experienceMultiplier)
-                        .build();*/
-                source.sendFeedback(() -> Text.translatable("commands.info.set.success"/*,levels*/),true);
-                //return experienceSystemBuilder.getLevel();
+                        .build();
+                source.sendFeedback(() -> Text.translatable("commands.info.set.success",levels),true);
+                return experienceSystemBuilder.getLevel();
             } else {
                 source.sendError(Text.translatable("commands.info.fail"));
                 return 0;
@@ -191,13 +191,13 @@ public class InfoCommands {
     private static int execute1(ServerCommandSource source, PlayerEntity player, int experiences) {
         if (source instanceof ServerCommandSource) {
             if (player != null) {
-                /*ExperienceSystemBuilder experienceSystemBuilder = new ExperienceSystemBuilder.Builder()
+                ExperienceSystemBuilder experienceSystemBuilder = new ExperienceSystemBuilder.Builder()
                         .experience(experiences)
                         .level(level)
                         .experienceMultiplier(experienceMultiplier)
-                        .build();*/
-                source.sendFeedback(() -> Text.translatable("commands.info.set.success"/*,experiences*/),true);
-                //return experienceSystemBuilder.getExperience();
+                        .build();
+                source.sendFeedback(() -> Text.translatable("commands.info.set.success",experiences),true);
+                return experienceSystemBuilder.getExperience();
             } else {
                 source.sendError(Text.translatable("commands.info.fail"));
                 return 0;
@@ -209,13 +209,13 @@ public class InfoCommands {
     private static int execute(ServerCommandSource source, PlayerEntity player, double experienceMultipliers) {
         if (source instanceof ServerCommandSource) {
             if (player != null) {
-                /*ExperienceSystemBuilder experienceSystemBuilder = new ExperienceSystemBuilder.Builder()
+                ExperienceSystemBuilder experienceSystemBuilder = new ExperienceSystemBuilder.Builder()
                         .experience(experience)
                         .level(level)
                         .experienceMultiplier(experienceMultipliers)
-                        .build();*/
-                source.sendFeedback(() -> Text.translatable("commands.info.set.success"/*,String.valueOf(experienceSystemBuilder.getExperienceMultiplier())*/),true);
-                //return experienceSystemBuilder.getExperience();
+                        .build();
+                source.sendFeedback(() -> Text.translatable("commands.info.set.success",String.valueOf(experienceSystemBuilder.getExperienceMultiplier())),true);
+                return experienceSystemBuilder.getExperience();
             } else {
                 source.sendError(Text.translatable("commands.info.fail"));
                 return 0;
@@ -227,14 +227,14 @@ public class InfoCommands {
     private static int execute2(ServerCommandSource source, PlayerEntity player, int experienceToNextLevel) {
         if (source instanceof ServerCommandSource) {
             if (player != null) {
-                /*ExperienceSystemBuilder experienceSystemBuilder = new ExperienceSystemBuilder.Builder()
+                ExperienceSystemBuilder experienceSystemBuilder = new ExperienceSystemBuilder.Builder()
                         .experience(experience)
                         .level(level)
                         .experienceMultiplier(experienceMultiplier)
                         .experienceToNextLevel(experienceToNextLevel)
-                        .build();*/
-                source.sendFeedback(() -> Text.translatable("commands.info.set.success"/*,String.valueOf(experienceToNextLevel)*/),true);
-                //return experienceSystemBuilder.getExperience();
+                        .build();
+                source.sendFeedback(() -> Text.translatable("commands.info.set.success",String.valueOf(experienceToNextLevel)),true);
+                return experienceSystemBuilder.getExperience();
             } else {
                 source.sendError(Text.translatable("commands.info.fail"));
                 return 0;

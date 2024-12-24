@@ -14,5 +14,7 @@ public class CommandSyntaxFailed {
     public static final SimpleCommandExceptionType NOT_AT_FLOAT = new SimpleCommandExceptionType(Text.translatable("command.mch.float.fail"));
     public static final SimpleCommandExceptionType FLOAT_SO_BIG = new SimpleCommandExceptionType(Text.translatable("command.mch.float.big"));
     public static final SimpleCommandExceptionType FLOAT_SO_SMALL = new SimpleCommandExceptionType(Text.translatable("command.mch.float.small"));
+    public static final SimpleCommandExceptionType STRING_INVALID = new SimpleCommandExceptionType(Text.translatable("command.mch.string.invalid"));
+    public static final SimpleCommandExceptionType BOOLEAN_INVALID = new SimpleCommandExceptionType(Text.translatable("command.mch.boolean.invalid"));
 }
 
