@@ -4,9 +4,12 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "BrewingRecipeRegistryMixin",
-    "ExampleMixin"
+    "CraftingResultSlotMixin",
+    "ExampleMixin",
+    "RepairItemRecipeMixin",
+    "SmithingScreenHandlerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-	}
+  }
 }
