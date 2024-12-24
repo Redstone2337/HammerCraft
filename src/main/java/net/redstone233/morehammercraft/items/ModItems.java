@@ -118,6 +118,7 @@ public class ModItems {
     public static final Item DEFAULT_TEMPLATE = register("default_template", Item::new, new Item.Settings().maxCount(64));
     public static final Item VAMPIRE_TEMPLATE = register("vampire_template", Item::new, new Item.Settings().maxCount(64));
     public static final Item SLOWNESS_TEMPLATE = register("slowness_template",Item::new, new Item.Settings().maxCount(64));
+    public static final Item RUBY = register("ruby",Item::new, new Item.Settings().maxCount(64));
 
     // public static final Item DEFAULT_TEST = register("test",Item::new,new Item.Settings());
     // public static final Item TEST = register("test1",BrickItem::new, new Item.Settings());
@@ -133,6 +134,7 @@ public class ModItems {
     public static final Item PAPERS = register("papers",Item::new,new Item.Settings().food(ModFoodComponents.PAPERS,ModConsumableComponents.PAPERS).maxCount(64));
     public static final Item IRON_CAN = register("iron_can",Item::new,new Item.Settings().maxCount(64));
     public static final Item IRON_COLA = register("iron_cola",ColaItem::new, new Item.Settings().maxCount(32).food(ModFoodComponents.COLA,ModConsumableComponents.COLA));
+    public static final Item HAMMER_CRAFTING = register("hammer_crafting",HammerCraftingItem::new,new Item.Settings());
 
     public static final Item ICE_DRAGON_SWORD = register(
             "ice_dragon_sword",
@@ -225,7 +227,7 @@ public class ModItems {
             .attributeModifiers(SlownessHammer.createAttributeModifiers())
     );
 
-    public static final Item Prospectors = register("prospector",Prospector::new, new Item.Settings()
+    public static final Item PROSPECTOR = register("prospector",Prospector::new, new Item.Settings()
             .maxDamage(3000)
             .component(DataComponentTypes.TOOL,Prospector.createToolComponent())
             .attributeModifiers(Prospector.createAttributeModifiers())
